@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist", // Directorio que se va a crear para los archivos compilados
+        "rootDir": "./src", // Directorio raíz de los archivos que se van a convertir a js
+        "lib": ["esnext"], // version de js a la que se va a compilar
+        "strict": false, // true indica que no permite tipos any
+        "sourceMap": true, // Generar archivos de mapa de origen(información interna para depuración)
+        "esModuleInterop": true, // Habilita interoperabilidad con librerías CommonJS
+        "declaration": true // Generar archivos de declaración .d.ts
+    },
+    "include": ["src/**/*.ts"] // Archivos a incluir en la compilación
+}
