@@ -1,11 +1,12 @@
 import { Router } from "express"
-import { createProduct, getProductById, getProducts, updateAvailability, updateProduct } from "./handlers/product"
+import { createProduct, deleteProduct, getProductById, getProducts, updateAvailability, updateProduct } from "./handlers/product"
 import { body, param } from "express-validator"
 import { handleInputErrors } from "./middleware"
 
 const router = Router()
 
 router.get('/', getProducts)
+
 router.get('/:id',
   param('id').isInt().withMessage('ID no válido'),
   handleInputErrors,
@@ -22,6 +23,7 @@ router.post('/',
   createProduct)
 
 router.put('/:id',
+  param('id').isInt().withMessage('ID no válido'),
   body('name')
     .notEmpty().withMessage('El nombre es obligatorio'),
   body('price')
@@ -33,6 +35,14 @@ router.put('/:id',
   handleInputErrors,
   updateProduct)
 
-router.patch('/:id', updateAvailability)
+router.patch('/:id',
+  param('id').isInt().withMessage('ID no válido'),
+  handleInputErrors,
+  updateAvailability)
+
+router.delete('/:id',
+  param('id').isInt().withMessage('ID no válido'),
+  handleInputErrors,
+  deleteProduct)
 
 export default router
