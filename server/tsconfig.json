@@ -6,7 +6,9 @@
         "strict": false, // true indica que no permite tipos any
         "sourceMap": true, // Generar archivos de mapa de origen(información interna para depuración)
         "esModuleInterop": true, // Habilita interoperabilidad con librerías CommonJS
-        "declaration": true // Generar archivos de declaración .d.ts
+        "declaration": true, // Generar archivos de declaración .d.ts
+        "experimentalDecorators": true, // Habilita el uso de decoradores para sequelize
+        "emitDecoratorMetadata": true, // Habilita la emisión de metadatos de decoradores para sequelize
     },
     "include": ["src/**/*.ts"] // Archivos a incluir en la compilación
 }
