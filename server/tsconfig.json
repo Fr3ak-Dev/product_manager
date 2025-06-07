@@ -9,6 +9,9 @@
         "declaration": true, // Generar archivos de declaración .d.ts
         "experimentalDecorators": true, // Habilita el uso de decoradores para sequelize
         "emitDecoratorMetadata": true, // Habilita la emisión de metadatos de decoradores para sequelize
+        "target": "ESNext", // Versión de JavaScript a la que se va a compilar
+        "moduleResolution": "nodenext", // Resolución de módulos al estilo Node.js
+        "module": "NodeNext", // Módulo a utilizar, en este caso NodeNext
     },
     "include": ["src/**/*.ts"] // Archivos a incluir en la compilación
 }
