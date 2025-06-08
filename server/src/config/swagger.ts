@@ -15,7 +15,7 @@ const options : swaggerJSDoc.Options = {
             description: 'API Docs for Products'
         }
     },
-    apis: ['./src/routers.ts']
+    apis: ['./src/router.ts']
 }
 
 const swaggerSpec = swaggerJSDoc(options)
