@@ -30,7 +30,7 @@ describe('POST /api/products', () => {
     it('should validate that the price is a number and greather than 0', async () => {
         const response = await request(server).post('/api/products').send({
             name: 'Test Product',
-            price: -5,
+            price: "cien",
         })
 
         expect(response.statusCode).toBe(400)
