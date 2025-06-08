@@ -83,6 +83,33 @@ router.get('/:id',
   handleInputErrors,
   getProductById)
 
+/**
+ * @swagger
+ * /api/products:
+ *   post:
+ *     summary: Create a new product
+ *     tags:
+ *       - Products
+ *     description: Return a new record in the database
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: Product One
+ *               price:
+ *                 type: number
+ *                 example: 100
+ *     responses:
+ *       201:
+ *         description: Product created
+ *       400:
+ *         description: Bad Request - Invalid Input data
+ */
 router.post('/',
   body('name')
     .notEmpty().withMessage('El nombre es obligatorio'),
