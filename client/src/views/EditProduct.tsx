@@ -1,6 +1,18 @@
-import { Form, Link, redirect, useActionData, useLocation, type ActionFunctionArgs } from "react-router-dom"
+import { Form, Link, redirect, useActionData, useLoaderData, type ActionFunctionArgs, type LoaderFunctionArgs } from "react-router-dom"
 import ErrorMessage from "../components/ErrorMessage"
-import { addProduct } from "../services/ProductService"
+import { addProduct, getProductById } from "../services/ProductService"
+import type { Product } from "../types"
+
+export async function loader({params} : LoaderFunctionArgs) {
+    if (params.id !== undefined) {
+        const product = getProductById(+params.id)
+        if (!product) {
+            return redirect('/')
+        }
+        return product
+    }
+    return {}
+}
 
 export async function action({ request }: ActionFunctionArgs) {
     const data = Object.fromEntries(await request.formData())
@@ -16,10 +28,9 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export default function EditProduct() {
+
+    const product = useLoaderData() as Product
     const error = useActionData() as string
-    
-    const { state } = useLocation()
-    console.log(state)
 
     return (
         <>
@@ -47,7 +58,7 @@ export default function EditProduct() {
                         className="mt-2 block w-full p-3 bg-gray-50"
                         placeholder="Nombre del Producto"
                         name="name"
-                        defaultValue={state.product.name}
+                        defaultValue={product.name}
                     />
                 </div>
                 <div className="mb-4">
@@ -61,7 +72,7 @@ export default function EditProduct() {
                         className="mt-2 block w-full p-3 bg-gray-50"
                         placeholder="Precio Producto. ej. 200, 300"
                         name="price"
-                        defaultValue={state.product.price}
+                        defaultValue={product.price}
                     />
                 </div>
                 <input
