@@ -31,7 +31,7 @@ export default function ProductDetails({ product }: ProductDetailProps) {
             <td className="p-3 text-lg text-gray-800">
                 <fetcher.Form method="POST">
                     <button
-                        type="button"
+                        type="submit"
                         name="id"
                         value={product.id}
                         className={`${isAvailable ? 'text-black' : 'text-red-600'}
@@ -47,7 +47,7 @@ export default function ProductDetails({ product }: ProductDetailProps) {
                 <div className="flex gap-2 items-center">
                     <button
                         onClick={() => navigate(`/products/${product.id}/edit`)}
-                        className="bg-indigo-600 text-white rounded-lg w-full p-2 uppercase font-bold text-xs text-center"
+                        className="bg-indigo-600 text-white rounded-lg w-full p-2 uppercase font-bold text-xs text-center cursor-pointer"
                     >Editar</button>
                     <Form
                         className="w-full"
@@ -62,7 +62,7 @@ export default function ProductDetails({ product }: ProductDetailProps) {
                         <input
                             type="submit"
                             value="Eliminar"
-                            className="bg-red-600 text-white rounded-lg w-full p-2 uppercase font-bold text-xs text-center"
+                            className="bg-red-600 text-white rounded-lg w-full p-2 uppercase font-bold text-xs text-center cursor-pointer"
                         />
                     </Form>
                 </div>
