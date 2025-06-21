@@ -13,5 +13,6 @@
         "moduleResolution": "nodenext", // Resolución de módulos al estilo Node.js
         "module": "NodeNext", // Módulo a utilizar, en este caso NodeNext
     },
-    "include": ["src/**/*.ts"] // Archivos a incluir en la compilación
+    "include": ["src/**/*.ts"], // Archivos a incluir en la compilación
+    "exclude": ["src/**/*.test.ts"]
 }
